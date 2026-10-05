@@ -1,0 +1,142 @@
+{
+  "info": {
+    "_postman_id": "aa2-ev01-api-empleados-antony-ospino",
+    "name": "API Empleados - AA2-EV01",
+    "description": "Colección de pruebas para la API RESTful de Gestión de Empleados desarrollada con Node.js, Express y MongoDB para la evidencia AA2-EV01.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Verificar Estado de la API (GET /)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": [""]
+        },
+        "description": "Retorna información general de la API, versión y estado del servicio."
+      },
+      "response": []
+    },
+    {
+      "name": "2. Listar Todos los Empleados (GET /api/empleados)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/empleados",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "empleados"]
+        },
+        "description": "Obtiene la lista completa de empleados registrados en MongoDB Atlas."
+      },
+      "response": []
+    },
+    {
+      "name": "3. Crear Nuevo Empleado (POST /api/empleados)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Laura Camila Sánchez\",\n  \"correo\": \"laura.sanchez@empresa.com\",\n  \"telefono\": \"3178889900\",\n  \"edad\": 26,\n  \"cargo\": \"Especialista en Seguridad Cloud\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/empleados",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "empleados"]
+        },
+        "description": "Registra un nuevo empleado en la base de datos."
+      },
+      "response": []
+    },
+    {
+      "name": "4. Consultar Empleado por ID (GET /api/empleados/:id)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/empleados/6ac41dc33dc036d85c9d0468",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "empleados", "6ac41dc33dc036d85c9d0468"]
+        },
+        "description": "Consulta un empleado existente por su ID de MongoDB (Jhonatan Pérez)."
+      },
+      "response": []
+    },
+    {
+      "name": "5. Actualizar Empleado (PUT /api/empleados/:id)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"telefono\": \"3191112233\",\n  \"cargo\": \"Líder de Arquitectura Cloud\",\n  \"edad\": 29\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/empleados/6ac41dc33dc036d85c9d0468",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "empleados", "6ac41dc33dc036d85c9d0468"]
+        },
+        "description": "Actualiza el teléfono y cargo del empleado con ID 6ac409db082d8618edd30a28."
+      },
+      "response": []
+    },
+    {
+      "name": "6. Eliminar Empleado (DELETE /api/empleados/:id)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/empleados/6ac41dc33dc036d85c9d046c",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "empleados", "6ac41dc33dc036d85c9d046c"]
+        },
+        "description": "Elimina al empleado con ID 6ac409db082d8618edd30a2c (Diego Armando Sánchez), manteniendo intacto el empleado del punto 4 y 5."
+      },
+      "response": []
+    },
+    {
+      "name": "7. Restaurar Base de Datos Original (POST /api/empleados/restaurar)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/empleados/restaurar",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "empleados", "restaurar"]
+        },
+        "description": "Restaura la colección de empleados a los 5 registros originales de prueba si se desea reiniciar el estado inicial."
+      },
+      "response": []
+    }
+  ]
+}
